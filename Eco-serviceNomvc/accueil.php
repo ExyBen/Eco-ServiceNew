@@ -1,7 +1,10 @@
 
 <!-- Header -->
 <?php 
-session_start();
+ if (!isset($_SESSION))
+ {
+     session_start();
+ }
 include('assets/include/connexionbdd.php');
 require_once('assets/include/header.php'); 
 
@@ -86,7 +89,10 @@ require_once('assets/include/header.php');
                                             <p class="btn btn-danger btn-block"><?php echo $result['prix'] ; ?> €</p>
                                         </div>
                                         <div class="col">
-                                            <a href="cart.html" class="btn btn-success btn-block">Ajouter au panier</a>
+                                        <form class="text-center" method="post" action="addPanier.php?link=accueil">
+                                            <input hidden name="id_article" value="<?php echo $result['id'] ?>">
+                                            <input type="submit" value="Ajouter au panier"> 
+                                        </form>
                                         </div>
                                     </div>
                                 </div>

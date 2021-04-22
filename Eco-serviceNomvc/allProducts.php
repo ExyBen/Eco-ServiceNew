@@ -19,12 +19,11 @@ require_once('assets/include/header.php');
         </div>
     </div>
 </section>
-
+    <?php if(!empty($msg)){
+        echo "<div class='alert-success'>$msg </div>";
+    }?>
 <div class="container w-100 " id="" >
     <div id="allArticles">
-        <?php if(!empty($msg)){
-            echo "<div class='alert-success'>$msg </div>";
-        }?>
         <div class="row"  action="allProducts.php" type="post">
 
        
