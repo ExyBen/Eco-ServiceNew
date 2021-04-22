@@ -1,23 +1,33 @@
 <?php
     include('assets/include/connexionbdd.php');
-    
+    if (!isset($_SESSION))
+{
+    session_start();
+}
     $id_article = $_POST['id_article'];
-    if(!isset($_POST['exemplaire'])){
+    if(!empty($_POST['exemplaire'])){
         $exemplaire = $_POST['exemplaire'];
-        $sql = "INSERT INTO panier (idUser, idArticle, exemplaire) VALUES (\'". $_SESSION['id'] ."', '". $id_article."', '". $exemplaire . "');";
+        $sql = "INSERT INTO panier (idUser, idArticle, exemplaire) VALUES ( :iduser, :idarticle,  :exemplaire);";
     }else
-        $sql = "INSERT INTO panier (idUser, idArticle, exemplaire) VALUES (\'". $_SESSION['id'] ."', '". $id_article."', '1');";
+        $sql = "INSERT INTO panier (idUser, idArticle, exemplaire) VALUES (:iduser, :idarticle, 1);";
 
     $panier = $bdd->prepare($sql);
+    $panier->bindParam(':iduser',$_SESSION['id']);
+    $panier->bindParam(':idarticle',$id_article);
+    if(!empty($_POST['exemplaire']))
+        $panier->bindParam(':exemplaire',$exemplaire);
+   
     $check = $panier->execute();
+    var_dump($check);
     $redirection = $_GET['link'];
     if($check)
         $msg = "votre article a bien été ajouté";
     else
         $msg = "votre article n'a pas pu être ajouté";
     if($redirection == 'allProducts')
-        include("product.php?article=$id_article");
-    if($redirection == 'product')
         include('allProducts.php');
+    if($redirection == 'product')
+        include("accueil.php");
+
 
     

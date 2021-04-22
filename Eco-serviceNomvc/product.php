@@ -54,7 +54,7 @@ $req->execute(array($_GET['article']));
                     <p class="price"><?php echo $donnees['prix']; ?> €</p>
                     <p class="price_discounted">149.90 $</p>
                     <form method="post" action="addPanier.php?link=product">
-                        <input hidden name="id_article">
+                        <input hidden name="id_article" value="<?php echo $donnees['id']; ?>">
                         <div class="form-group">
                             <label>Quantity :</label>
                             <div class="input-group mb-3">

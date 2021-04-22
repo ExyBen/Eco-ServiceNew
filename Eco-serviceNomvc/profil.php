@@ -7,7 +7,6 @@ include('assets/include/connexionbdd.php');
 require_once('assets/include/header.php'); 
 
 
-include('assets/include/connexionbdd.php');   
 
 if(!isset($_POST['pass'])){
     $_POST['pass'] = '';
