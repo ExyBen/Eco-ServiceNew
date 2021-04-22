@@ -28,15 +28,15 @@ require_once('assets/include/header.php');
         
             while ($donnees = $req->fetch()) {
             ?>
-
-                <div class="col-5 articleProducts text-center">
+                <a class="col-5 articleProducts text-center" href ="product.php?article=<?php echo $donnees['id'] ?>">
+                <div >
                     <img src ="http://localhost/Eco-service/vue/img/articleImg/<?php echo $donnees['img'] ?>.jpg" class="img-fluid rounded " width="90%">
                     <p> Catégorie :  <?php echo $donnees['categoriearticle'] ; ?></p>
                     <p> Prix :  <?php echo $donnees['prix'] ; ?></p>
                     <input hidden name="id" value="<?php echo $donnees['id']; ?>" >
                     <input name="add" type="submit" value="Ajouter au panier"> 
                 </div>
-
+                </A>
             
             <?php
             } // Fin de la boucle des billets
@@ -51,14 +51,14 @@ require_once('assets/include/header.php');
         
             while ($donnees = $req->fetch()) {
             ?>
-
-                <div class="col-5 articleProducts text-center">
+                <a class="col-5 articleProducts text-center" href ="product.php?article=<?php echo $donnees['id'] ?>">
+                <div class="">
                     <img src ="http://localhost/Eco-service/vue/img/articleImg/<?php echo $donnees['img'] ?>.jpg" class="img-fluid rounded " width="90%">
                     <p> Catégorie :  <?php echo $donnees['categoriearticle'] ; ?></p>
                     <p> Prix :  <?php echo $donnees['prix'] ; ?></p>
                     <button> Ajouter au panier</button>
                 </div>
-
+                </a>
             
             <?php
             } // Fin de la boucle des billets
