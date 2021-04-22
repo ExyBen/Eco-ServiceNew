@@ -22,21 +22,6 @@ require_once('assets/include/header.php');
                     <div class="carousel-item active">
                         <img class="d-block w-100" src="assets/images/Recyclage.png" alt="1st slide">
                    </div>
-                    <!-- <div class="carousel-item">
-                        <img class="d-block w-100" src="img/planete2.png" alt="Second slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="https://dummyimage.com/855x365/1443ff/fff" alt="Third slide">
-                    </div>
-                </div> -->
-                <!-- <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a> -->
             </div>
         </div>
         
@@ -123,7 +108,7 @@ require_once('assets/include/header.php');
         <h1 class="jumbotron-heading DecouvrezNosProduits text-center" >Decouvrez nos services</h1></br>
         <div class="row ">
             <div class="col-5">
-            <img src ="http://localhost/Eco-service/vue/img/imgservices.jpg" class=" img-fluid float-left" width='100%'height="100%">
+            <img src ="assets/images/imgservices.jpg" class=" img-fluid float-left" width='100%'height="100%">
 
             </div>
             <div class="col-7">
