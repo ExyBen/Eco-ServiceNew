@@ -28,6 +28,8 @@
         include('allProducts.php');
     if($redirection == 'product')
         include("accueil.php");
+    if($redirection == 'product')
+        include("accueil.php");
 
 
     
