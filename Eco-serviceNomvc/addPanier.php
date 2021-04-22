@@ -1,6 +1,6 @@
 <?php
     include('assets/include/connexionbdd.php');
-
+    
     $id_article = $_POST['id_article'];
     if(!isset($_POST['exemplaire'])){
         $exemplaire = $_POST['exemplaire'];

@@ -71,9 +71,7 @@ $req->execute(array($_GET['article']));
                                 </div>
                             </div>
                         </div>
-                        <a href="cart.html" class="btn btn-success btn-lg btn-block text-uppercase">
-                            <i class="fa fa-shopping-cart"></i> Add To Cart
-                        </a>
+                        <input style="margin:auto; display:block;" value="Ajoutez au panier" type="submit">
                     </form>
                     <div class="product_rassurance">
                         <ul class="list-inline">
