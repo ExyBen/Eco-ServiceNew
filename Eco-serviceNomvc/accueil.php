@@ -99,8 +99,6 @@ require_once('assets/include/header.php');
                             </div>
                         </div>
                          <?php endforeach;?> 
-                        
-                        
                     </div>
                 </div>
             </div>

@@ -51,13 +51,14 @@ if(!isset($_POST['pass3'])){
                 <div>            
                 <a class="col-12 text-center justify-content-around itemConnec" id="selectConnexion" >Modifier ton mot de passe </a>
                 <br><br>
-                    <form action="profil_post.php" method="post" id="register_form">   
-                        <a for="pass">Ancien mot de passe :</a><input type="password" name="pass"  class="form-controll" value="<?php echo htmlspecialchars($_POST['pass'])?>"/><br /> <!-- value on protege contre l'injection de html grace a htmlspecialchars -->
+                    <form action="profil_post.php" class="text-center" method="post" id="register_form">   
+                        <a for="pass">Ancien mot de passe :</a><br > 
+                        <input type="password" name="pass"  class="form-controll" value="<?php echo htmlspecialchars($_POST['pass'])?>"/><!-- value on protege contre l'injection de html grace a htmlspecialchars -->
                             <?php if(isset($pass_error)) { ?>     <!-- idem pour le mot de passe-->
                                         <p class="form_error"> <?php echo $pass_error ?> </p> 
-                            <?php } ?>
-                        <a for="pass">Nouveau mot de passe :</a><input type="password" name="pass2"  class="form-controll" value="<?php echo htmlspecialchars($_POST['pass2'])?>"/><br /> <!-- value on protege contre l'injection de html grace a htmlspecialchars -->
-                        <a for="pass">Retapez le nouveau mot de passe :</a><input type="password" name="pass3"  class="form-controll" value="<?php echo htmlspecialchars($_POST['pass3'])?>"/><br /> <!-- value on protege contre l'injection de html grace a htmlspecialchars -->
+                            <?php } ?><br > <br > 
+                        <a for="pass">Nouveau mot de passe :</a><br> <input type="password" name="pass2"  class="form-controll" value="<?php echo htmlspecialchars($_POST['pass2'])?>"/><br><br> <!-- value on protege contre l'injection de html grace a htmlspecialchars -->
+                        <a for="pass">Retapez le nouveau mot de passe :</a><br><input type="password" name="pass3"  class="form-controll" value="<?php echo htmlspecialchars($_POST['pass3'])?>"/><br><br> <!-- value on protege contre l'injection de html grace a htmlspecialchars -->
                         <?php if(isset($pass_error)) { ?>     <!-- idem pour le mot de passe-->
                             <p class="form_error"> <?php echo $pass_error2 ?> </p>
                         <?php } ?>
