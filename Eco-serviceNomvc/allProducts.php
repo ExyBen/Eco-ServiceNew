@@ -56,10 +56,10 @@ require_once('assets/include/header.php');
         
             while ($donnees = $req->fetch()) {
             ?>
-            <form method="post" action="addPanier.php?link=allProducts">
+            <form class="col-5 articleProducts text-center" method="post" action="addPanier.php?link=allProducts">
 
               
-                <div class="col-5 articleProducts text-center">
+                <div class="">
                     <a class="" href ="product.php?article=<?php echo $donnees['id'] ?>">
                     <img src ="assets/images/articleImg/<?php echo $donnees['img'] ?>.jpg" class="img-fluid rounded " width="90%">
                     <p> Catégorie :  <?php echo $donnees['categoriearticle'] ; ?></p>
