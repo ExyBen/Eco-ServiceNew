@@ -1,6 +1,9 @@
 
 <?php 
-session_start();
+    if (!isset($_SESSION))
+    {
+        session_start();
+    }
 include('assets/include/connexionbdd.php');
 require_once('assets/include/header.php'); 
 
@@ -33,6 +36,9 @@ $req->execute(array($_GET['article']));
         </div>
     </div>
 </div>
+<?php if(!empty($msg)){
+            echo "<div class='alert-success text-center';>$msg </div>";
+        }?>
 <div class="container">
     <div class="row">
         <!-- Image -->

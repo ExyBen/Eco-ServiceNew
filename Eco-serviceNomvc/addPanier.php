@@ -24,10 +24,12 @@
         $msg = "votre article a bien été ajouté";
     else
         $msg = "votre article n'a pas pu être ajouté";
+
+    $_GET['article'] = $id_article;
     if($redirection == 'allProducts')
         include('allProducts.php');
     if($redirection == 'product')
-        include("accueil.php");
+        include("product.php");
     if($redirection == 'accueil')
         include("accueil.php");
 

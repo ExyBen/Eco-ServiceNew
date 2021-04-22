@@ -22,7 +22,9 @@ require_once('assets/include/header.php');
 
 <div class="container w-100 " id="" >
     <div id="allArticles">
-
+        <?php if(!empty($msg)){
+            echo "<div class='alert-success'>$msg </div>";
+        }?>
         <div class="row"  action="allProducts.php" type="post">
 
        
@@ -54,15 +56,21 @@ require_once('assets/include/header.php');
         
             while ($donnees = $req->fetch()) {
             ?>
-                <a class="col-5 articleProducts text-center" href ="product.php?article=<?php echo $donnees['id'] ?>">
-                <div class="">
-                    <img src ="http://localhost/Eco-service/vue/img/articleImg/<?php echo $donnees['img'] ?>.jpg" class="img-fluid rounded " width="90%">
+            <form method="post" action="addPanier.php?link=allProducts">
+
+              
+                <div class="col-5 articleProducts text-center">
+                    <a class="" href ="product.php?article=<?php echo $donnees['id'] ?>">
+                    <img src ="assets/images/articleImg/<?php echo $donnees['img'] ?>.jpg" class="img-fluid rounded " width="90%">
                     <p> Catégorie :  <?php echo $donnees['categoriearticle'] ; ?></p>
                     <p> Prix :  <?php echo $donnees['prix'] ; ?></p>
-                    <button> Ajouter au panier</button>
+                    </a>
+                    <input hidden name="id_article" value="<?php echo $donnees['id'] ?>">
+                    <input type="submit" value="Ajouter au panier"> 
                 </div>
-                </a>
-            
+
+                
+            </form>
             <?php
             } // Fin de la boucle des billets
             ?>
