@@ -20,7 +20,7 @@ require_once('assets/include/header.php');
 <div class="container w-100 " id="" >
     <div id="allArticles">
 
-        <div class="row"  action="./index.php/?modele=article&action=getAllArticles">
+        <div class="row"  action="allProducts.php" type="post">
 
        
             <?php
@@ -33,7 +33,8 @@ require_once('assets/include/header.php');
                     <img src ="http://localhost/Eco-service/vue/img/articleImg/<?php echo $donnees['img'] ?>.jpg" class="img-fluid rounded " width="90%">
                     <p> Catégorie :  <?php echo $donnees['categoriearticle'] ; ?></p>
                     <p> Prix :  <?php echo $donnees['prix'] ; ?></p>
-                    <button> Ajouter au panier</button>
+                    <input hidden name="id" value="<?php echo $donnees['id']; ?>" >
+                    <input name="add" type="submit" value="Ajouter au panier"> 
                 </div>
 
             
