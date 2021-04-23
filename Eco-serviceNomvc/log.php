@@ -7,6 +7,11 @@ require_once('assets/include/header.php');
 ?>
 <!-- Fin du Header -->
 
+<?php if(isset($_SESSION['id']) AND isset($_SESSION['email'])){  
+
+header('Location:accueil.php');
+
+}else{?>
 
 <section class=" testici  container w-100 divBoxLog col-lg-4 col-10  ">
     <div class="row chooseLog">
@@ -90,4 +95,4 @@ function showInscription() {
 </script>
 
 
-
+<?php } ?>

@@ -9,7 +9,10 @@ html {
 .testici {
     height: 700px;
 }
-.del2 {
+.btn-action {
+    background-color:#668B22;
+    color:white;
+    margin-bottom: 5px;
 }
 .form_error{
 
@@ -153,6 +156,48 @@ h5{
     font-family: 'Rock Salt';
     font-size: 30px;
 
+}
+
+.backgroundsearch{
+    background-color: #C4C4C4!important;
+}
+input[type="search"],
+button {
+    float: left;
+}
+.autocomplete-items{
+    position: absolute;
+    bottom: -64px;
+    left: 14px;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+}
+.input-group{
+    position: relative;
+    display: -webkit-box; 
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    width: 100%;
+}
+.form-control2{
+    display: block;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 .col-5-5 {
     @extend .extra-col;

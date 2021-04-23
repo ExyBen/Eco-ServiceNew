@@ -77,7 +77,7 @@ $req->execute(array($_GET['article']));
                                 </div>
                             </div>
                         </div>
-                        <input style="margin:auto; display:block;" value="Ajoutez au panier" type="submit">
+                        <input style="margin:auto; display:block;" class="btn btn-action"value="Ajoutez au panier" type="submit">
                     </form>
                     <div class="product_rassurance">
                         <ul class="list-inline">
@@ -94,7 +94,6 @@ $req->execute(array($_GET['article']));
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         (4/5)
-                        <a class="pull-right" href="#reviews">Voir tout les avis</a>
                     </div>
                    
                 </div>
@@ -106,7 +105,7 @@ $req->execute(array($_GET['article']));
         <!-- Description -->
         <div class="col-12">
             <div class="card border-light mb-3">
-                <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-align-justify"></i> Description</div>
+                <div class="card-header bg-color2 text-white text-uppercase"><i class="fa fa-align-justify"></i> Description</div>
                 <div class="card-body">
                     <p class="card-text">
                     <?php echo $donnees['description']; ?>
@@ -118,7 +117,7 @@ $req->execute(array($_GET['article']));
         <!-- Reviews -->
         <div class="col-12" id="reviews">
             <div class="card border-light mb-3">
-                <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-comment"></i> Commentaires</div>
+                <div class="card-header bg-color2 text-white text-uppercase"><i class="fa fa-comment"></i> Commentaires</div>
                 <div class="card-body">
                     <div class="review">
                     <?php 
@@ -169,6 +168,7 @@ $req->execute(array($_GET['article']));
     </div>
 </div>
 <div class="w-100"></div>
+<?php if(isset($_SESSION['id']) AND isset($_SESSION['email'])){  ?>
 			<!-- Article main content -->
 			<article class="text-center">
 				<header class="page-header">
@@ -193,8 +193,13 @@ $req->execute(array($_GET['article']));
 				</form>
 			</article>
         </div>
-
-
+<?php }else{ ?>
+            <article class="text-center">
+				<header class="page-header">
+					<h4 class="page-title">Inscris toi ou connecte toi pour poster un commentaire !</h4>
+                </header>
+			</article>
+<?php } ?>
 
 <!-- Footer -->
 <?php require_once('assets/include/footer.php');?>
