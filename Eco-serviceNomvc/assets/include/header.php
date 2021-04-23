@@ -132,6 +132,6 @@
         </div>
     </nav>
                 
-            <a>No session</a>
+            <a>No sesssion</a>
 
         <?php }?>
