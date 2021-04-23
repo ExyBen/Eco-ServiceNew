@@ -121,6 +121,17 @@ $req->execute(array($_GET['article']));
                 <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-comment"></i> Commentaires</div>
                 <div class="card-body">
                     <div class="review">
+                    <?php 
+                    $req = $bdd->prepare('SELECT id,idUser, texte, idArticle,DATE_FORMAT(date_commentaire, \'%d/%m/%Y à %Hh %imin\') AS date_commentaire_fr FROM commentaire WHERE idArticle = ? ORDER BY date_commentaire DESC'); 
+                    $req->execute(array($_GET['article']));
+                    if($req->rowCount() == 0){ // SI ROWCOUNT = 0 DONT IL YA PAS DE COMM ON ECHO XXX SINON ON FAIS LA BOUCLE
+                    ?>
+                        <div class='text-center'>Pas encore de commentaires , soyez le premier ! </div>
+                    <?php
+                    }else{
+
+                while ($donnees = $req->fetch()){
+        ?>  
                         <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
                         <meta itemprop="datePublished" content="01-01-2016">January 01, 2018
 
@@ -155,6 +166,31 @@ $req->execute(array($_GET['article']));
         </div>
     </div>
 </div>
+<div class="w-100"></div>
+			<!-- Article main content -->
+			<article class="text-center">
+				<header class="page-header">
+					<h4 class="page-title">Ajoute ton commentaire !</h4>
+                </header>
+                <form action="articlecomm_post.php" method="post">
+                    <br>
+                    <p class=""></p> 
+                    <input type="hidden" name="id" value="<?php echo $_SESSION['id'] ?>"/>  
+                    <input type="hidden" name="id_article" value="<?php echo $_GET['article'] ?>"/>  
+                    <div class="col-sm-12">
+						<div class="col-sm-4 offset-sm-4 ">
+							<textarea placeholder="Ecrivez votre message ici..." class="form-control" name ="texte"rows="9"></textarea>
+						</div>
+					</div>
+					<br>
+					<div class="row">	
+						<div class="col-sm-12 ">
+								<input class="btn btn-action" type="submit" value="Envoyer le message">
+							</div>
+						</div>
+				</form>
+			</article>
+        </div>
 
 
 

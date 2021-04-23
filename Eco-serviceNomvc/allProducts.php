@@ -34,7 +34,7 @@ require_once('assets/include/header.php');
             ?>
                 <a class="col-5 articleProducts text-center" href ="product.php?article=<?php echo $donnees['id'] ?>">
                 <div >
-                    <img src ="http://localhost/Eco-service/vue/img/articleImg/<?php echo $donnees['img'] ?>.jpg" class="img-fluid rounded " width="90%">
+                    <img src ="assets/images/articleImg/<?php echo $donnees['img'] ?>.jpg" class="img-fluid rounded " width="90%">
                     <p> Catégorie :  <?php echo $donnees['categoriearticle'] ; ?></p>
                     <p> Prix :  <?php echo $donnees['prix'] ; ?></p>
                     <input hidden name="id" value="<?php echo $donnees['id']; ?>" >
