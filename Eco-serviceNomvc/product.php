@@ -83,7 +83,7 @@ $req->execute(array($_GET['article']));
                         <ul class="list-inline">
                             <li class="list-inline-item"><i class="fa fa-truck fa-2x"></i><br/>Livraison rapide</li>
                             <li class="list-inline-item"><i class="fa fa-credit-card fa-2x"></i><br/>Paiement sécurisé</li>
-                            <li class="list-inline-item"><i class="fa fa-phone fa-2x"></i><br/>+33 1 22 54 65 60</li>
+                            <li class="list-inline-item"><i class="fa fa-phone fa-2x"></i><br/>01 84 16 20 10</li>
                         </ul>
                     </div>
                     <div class="reviews_product p-3 mb-2 ">
@@ -122,7 +122,7 @@ $req->execute(array($_GET['article']));
                 <div class="card-body">
                     <div class="review">
                     <?php 
-                    $req = $bdd->prepare('SELECT id,idUser, texte, idArticle,DATE_FORMAT(date_commentaire, \'%d/%m/%Y à %Hh %imin\') AS date_commentaire_fr FROM commentaire WHERE idArticle = ? ORDER BY date_commentaire DESC'); 
+                    $req = $bdd->prepare('SELECT user.nom, user.email,user.prenom,c.id,c.idUser, c.texte, c.idArticle,DATE_FORMAT(c.date_commentaire, \'%d/%m/%Y à %Hh %imin\') AS date_commentaire_fr  FROM commentaire AS c LEFT JOIN user ON c.idUser = user.id WHERE c.idArticle = ? ORDER BY c.date_commentaire DESC'); 
                     $req->execute(array($_GET['article']));
                     if($req->rowCount() == 0){ // SI ROWCOUNT = 0 DONT IL YA PAS DE COMM ON ECHO XXX SINON ON FAIS LA BOUCLE
                     ?>
@@ -130,37 +130,39 @@ $req->execute(array($_GET['article']));
                     <?php
                     }else{
 
-                while ($donnees = $req->fetch()){
-        ?>  
+                            while ($donnees = $req->fetch()){
+                    ?>  
+                        <?php 
+                            if ($_SESSION['email'] == $donnees['email']){ //On affiche sa uniquement si le pseudo = a la session donc juste SES commentaires
+                        ?> 
+
+                        <!--Supprimer le commentaire-->
+                        <form action="suppcom.php" method="post" class="del2">
+                            <button class="btn btn-sm float-right" type="submit">
+                            <img src="assets\images\icones\trash-svg.svg" width="16" height="16" class="float-right" title="Supprimer le commentaire"></button>
+                            <input type="hidden" name="id" value="<?php echo $donnees['id'] ?>"/>  
+                            <input type="hidden" name="idArticle" value="<?php echo $_GET['article'] ?>"/>  
+
+                        </form> 
+                        
+                        <?php 
+                            } 
+                        ?>
                         <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                        <meta itemprop="datePublished" content="01-01-2016">January 01, 2018
+                        <meta itemprop="datePublished" content="01-01-2016"><?php echo $donnees['date_commentaire_fr']; ?>
 
                         <span class="fa fa-star"></span>
                         <span class="fa fa-star"></span>
                         <span class="fa fa-star"></span>
                         <span class="fa fa-star"></span>
                         <span class="fa fa-star"></span>
-                        by Paul Smith
+                        par <?php echo htmlspecialchars($donnees['prenom']); ?> <?php echo htmlspecialchars($donnees['nom']); ?>
                         <p class="blockquote">
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                            <p class="mb-0"><?php echo nl2br(htmlspecialchars($donnees['texte'])); ?></p>
                         </p>
                         <hr>
                     </div>
-                    <div class="review">
-                        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-                        <meta itemprop="datePublished" content="01-01-2016">January 01, 2018
-
-                        <span class="fa fa-star" aria-hidden="true"></span>
-                        <span class="fa fa-star" aria-hidden="true"></span>
-                        <span class="fa fa-star" aria-hidden="true"></span>
-                        <span class="fa fa-star" aria-hidden="true"></span>
-                        <span class="fa fa-star" aria-hidden="true"></span>
-                        by Paul Smith
-                        <p class="blockquote">
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                        </p>
-                        <hr>
-                    </div>
+                    <?php }} ?>
                 </div>
             </div>
         </div>
