@@ -66,7 +66,7 @@ Prenez rendez-vous dès maintenant pour bénéfier de notre sercive de recyclage
                     
                     foreach($results as $result): ?>
                         <div class="col-sm-4">
-                            <div class="card">
+                            <div class="card2">
                                 <img class="card-img-top" src ="assets/images/articleImg/<?php echo $result['img'] ?>" class="img-fluid rounded " alt="Card image cap">
                                 <div class="card-body">
                                     <?php 
