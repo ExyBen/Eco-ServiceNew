@@ -46,7 +46,7 @@ $req->execute(array($_GET['article']));
             <div class="card bg-light mb-3">
                 <div class="card-body">
                     <a href="" data-toggle="modal" data-target="#productModal">
-                        <img class="img-fluid" src="assets/images/articleImg/<?php echo $donnees['img']; ?>.jpg" />
+                        <img class="img-fluid" src="assets/images/articleImg/<?php echo $donnees['img']; ?>" />
                         <p class="text-center">Zoom</p>
                     </a>
                 </div>
@@ -62,7 +62,7 @@ $req->execute(array($_GET['article']));
                     <form method="post" action="addPanier.php?link=product">
                         <input hidden name="id_article" value="<?php echo $donnees['id']; ?>">
                         <div class="form-group">
-                            <label>Quantity :</label>
+                            <label>Quantité :</label>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
@@ -200,7 +200,7 @@ $req->execute(array($_GET['article']));
                 </header>
 			</article>
 <?php } ?>
-
+</div>
 <!-- Footer -->
 <?php require_once('assets/include/footer.php');?>
 
@@ -229,7 +229,7 @@ $req->execute(array($_GET['article']));
 <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" type="text/javascript"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" type="text/javascript"></script>
 <script type="text/javascript">
-    //Plus & Minus for Quantity product
+    //Plus & Moins pour la quantité
     $(document).ready(function(){
         var quantity = 1;
 

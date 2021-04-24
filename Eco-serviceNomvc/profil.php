@@ -39,10 +39,11 @@ if(!isset($_POST['pass3'])){
                         <a class="col-12 text-center justify-content-around itemConnec" id="selectConnexion" >Information </a>
                     </div>
                     <div>
-                        <p> <?php echo $_SESSION['email']?> </p>
-                        <p> <?php echo $_SESSION['adresse']?> </p>
+                    
+                        <p>Votre mail : <?php echo $_SESSION['email']?> </p>
+                        <p>Votre adresse : <?php echo $_SESSION['adresse']?> </p>
                         <?php if(isset($_SESSION['siret'])){ ?>
-                            <p> <?php echo $_SESSION['siret']?> </p>
+                            <p>Votre n°SIRET : <?php echo $_SESSION['siret']?> </p>
                         <?php }else{ ?>
                             <p>Vous n'avez pas de SIRET
                         <?php } ?>  
@@ -62,7 +63,7 @@ if(!isset($_POST['pass3'])){
                         <?php if(isset($pass_error)) { ?>     <!-- idem pour le mot de passe-->
                             <p class="form_error"> <?php echo $pass_error2 ?> </p>
                         <?php } ?>
-                        <button type="submit" class="btn btn-primary btnenvoyer">Envoyer</button>
+                        <button type="submit" class="btn btn-primary btnenvoyer text-center">Envoyer</button>
                     </form>
                 </div>
 			</div>

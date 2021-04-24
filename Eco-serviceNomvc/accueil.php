@@ -7,29 +7,12 @@
  }
 include('assets/include/connexionbdd.php');
 require_once('assets/include/header.php'); 
-
+require_once('assets/include/banniere.svg'); 
 ?>
 <!-- Fin du Header -->
 
 
-<div class="taille">
-    <div class="row">
-        <div class="col-12 col-md-12 ">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="d-block w-100" src="assets/images/Recyclage.png" alt="1st slide">
-                   </div>
-            </div>
-        </div>
-        
-    </div>
-</div>
+
 <section class="jumbotron  ">
     <div class="container">
         <h1 class="jumbotron-heading DecouvrezNosProduits text-center" >Demarche Zero-Déchets </h1></br>
@@ -80,7 +63,7 @@ require_once('assets/include/header.php');
                     foreach($results as $result): ?>
                         <div class="col-sm">
                             <div class="card">
-                                <img class="card-img-top" src ="assets/images/articleImg/<?php echo $result['img'] ?>.jpg" class="img-fluid rounded " alt="Card image cap">
+                                <img class="card-img-top" src ="assets/images/articleImg/<?php echo $result['img'] ?>" class="img-fluid rounded " alt="Card image cap">
                                 <div class="card-body">
                                     <h4 class="card-title"><a href="product.html" title="View Product"><?php echo $result['titre_article'] ; ?></a></h4>
                                     <p class="card-text"><?php echo $result['description'] ; ?></p>
@@ -117,7 +100,7 @@ require_once('assets/include/header.php');
             </div>
             <div class="col-7">
              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates, soluta sapiente distinctio quaerat, est accusamus eum explicabo, asperiores repellendus numquam ab error quas saepe dolorum impedit quo delectus quibusdam alias.</p>
-            <button class="btn btn-success">Voir nos services</button>
+            <button class="btn btn-success" onclick="window.location.href='services.php'">Voir nos services</button>
             </div>
             
         </div>

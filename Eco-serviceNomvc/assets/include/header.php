@@ -60,7 +60,7 @@
                 <div class="form-inline my-2 my-lg-0">
                     <div class="input-group input-group-sm">
                         <a href="deconnexion.php" class ="iconnav" ><img title="search" alt="search" src="assets/images/icones/search.png" width="30px"></a> 
-                        <a href="#" class ="iconnav"><img title="panier" alt="panier" src="assets/images/icones/panier.png" width="30px"></a> 
+                        <a href="panier.php" class ="iconnav"><img title="panier" alt="panier" src="assets/images/icones/panier.png" width="30px"></a> 
                         <a href="profil.php" class ="iconnav"><img title="profil" alt="profil" src="assets/images/icones/profil.png" width="30px"></a> 
                     </div>
                     
@@ -116,18 +116,20 @@
                     <li class="nav-item col-4">
                         <a class="nav-link" href="contact.php">Contact</a>
                     </li>
-                    <li>
-                        <a class="nav-link"  href="deconnexion.php">Deconnexion</a>
-                    </li>
                     
-
                 </ul>
-                
+                <div class="input-group col test3" id="nextthis">
+                            <form action="search_article.php" method="post">
+                                    <input type="search" placeholder="Recherchez un article.." name="article" autocomplete="off" id="nomArticle"  class="form-control2">
+                                    <div class="input-group-append">
+                                        <button id="buttonclick"  class="btn  text-primary backgroundsearch"><i class="fa fa-search "></i></button>
+                                    </div>
+                            </form>
+                        </div>
 
                 <div class="form-inline my-2 my-lg-0">
                     <div class="input-group input-group-sm">
-                        <a href="#" class ="iconnav" ><img title="search" alt="search" src="assets/images/icones/search.png" width="30px"></a> 
-                        <a href="#" class ="iconnav"><img title="panier" alt="panier" src="assets/images/icones/panier.png" width="30px"></a> 
+                        <a href="panier.php" class ="iconnav"><img title="panier" alt="panier" src="assets/images/icones/panier.png" width="30px"></a> 
                         <a href="log.php" class ="iconnav"><img title="profil" alt="profil" src="assets/images/icones/profil.png" width="30px"></a> 
                     </div>
                     
