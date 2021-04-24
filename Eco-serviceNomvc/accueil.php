@@ -48,7 +48,7 @@ Prenez rendez-vous dès maintenant pour bénéfier de notre sercive de recyclage
 
     <div class="row">
     
-        <div class="col-sm">
+        <div class="col-12">
             <div class="card">
                 <div class="card-header bg-color2 text-white text-uppercase">
                     <i class="fa fa-star"></i> Nos derniers produits 
@@ -65,7 +65,7 @@ Prenez rendez-vous dès maintenant pour bénéfier de notre sercive de recyclage
                     $results = $bdd->fetchAll();
                     
                     foreach($results as $result): ?>
-                        <div class="col-4">
+                        <div class="col-sm-4">
                             <div class="card">
                                 <img class="card-img-top" src ="assets/images/articleImg/<?php echo $result['img'] ?>" class="img-fluid rounded " alt="Card image cap">
                                 <div class="card-body">
@@ -126,7 +126,6 @@ Prenez rendez-vous sans plus attendre!</p>
         </div>
     </div>
 </section>
-
 
 
 

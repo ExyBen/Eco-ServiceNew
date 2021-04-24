@@ -20,7 +20,7 @@ require_once('assets/include/header.php');
     </div>
 </section>
     <?php if(!empty($msg)){
-        echo "<div class='alert-success'>$msg </div>";
+        echo "<div class='alert-success text-center'>$msg </div>";
     }?>
 <div class="container w-100 " id="" >
     <div id="allArticles">
@@ -31,7 +31,7 @@ require_once('assets/include/header.php');
         
             while ($donnees = $req->fetch()) {
             ?>
-                <a class="col-4-custom articleProducts text-center" href ="product.php?article=<?php echo $donnees['id'] ?>">
+                <a class="col-sm-4 articleProducts text-center" href ="product.php?article=<?php echo $donnees['id'] ?>">
                 <div >
                 <?php 
                     if ($_SESSION['statut'] == "2"){ //On affiche sa uniquement si le pseudo = a la session donc juste SES commentaires
@@ -50,8 +50,10 @@ require_once('assets/include/header.php');
                     <img src ="assets/images/articleImg/<?php echo $donnees['img'] ?>" class="img-fluid rounded " width="90%">
                     <p style="color: black"> Catégorie :  <?php echo $donnees['categoriearticle'] ; ?></p>
                     <p style="color: black"> Prix :  <?php echo $donnees['prix'] ; ?> €</p>
-                    <input hidden name="id" value="<?php echo $donnees['id']; ?>" >
-                    <input class="btn btn-success" name="add" type="submit" value="Ajouter au panier"> 
+                    <form class="text-center" method="post" action="addPanier.php?link=allProducts">
+                        <input hidden name="id_article" value="<?php echo $donnees['id'] ?>">
+                        <input class="btn btn-success" type="submit" value="Ajouter au panier"> 
+                    </form>
                 </div>
                 </A>
             
@@ -62,14 +64,14 @@ require_once('assets/include/header.php');
         </div>
     </div>
         <div id="newArticles">
-        <div class="row"  action="allProducts.php" type="post">
+        <div class="row "  action="allProducts.php" type="post">
 
             <?php
             $req = $bdd->query('SELECT * FROM article ORDER BY date_ajout DESC');
 
             while ($donnees = $req->fetch()) {
             ?>
-                <a class="col-4-custom articleProducts text-center" href ="product.php?article=<?php echo $donnees['id'] ?>">
+                <a class="col-sm-4 articleProducts text-center" href ="product.php?article=<?php echo $donnees['id'] ?>">
                 <div >
                 <?php 
                     if ($_SESSION['statut'] == "2"){ //On affiche sa uniquement si le pseudo = a la session donc juste SES commentaires
@@ -88,8 +90,10 @@ require_once('assets/include/header.php');
                     <img src ="assets/images/articleImg/<?php echo $donnees['img'] ?>" class="img-fluid rounded " width="90%">
                     <p style="color: black"> Catégorie :  <?php echo $donnees['categoriearticle'] ; ?></p>
                     <p style="color: black"> Prix :  <?php echo $donnees['prix'] ; ?>€</p>
-                    <input hidden name="id" value="<?php echo $donnees['id']; ?>" >
-                    <input class="btn btn-success" name="add" type="submit" value="Ajouter au panier"> 
+                    <form class="text-center" method="post" action="addPanier.php?link=allProducts">
+                        <input hidden name="id_article" value="<?php echo $donnees['id'] ?>">
+                        <input class="btn btn-success" type="submit" value="Ajouter au panier"> 
+                    </form>
                 </div>
                 </A>
 

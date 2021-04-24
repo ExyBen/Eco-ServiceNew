@@ -52,7 +52,7 @@
                             <form action="search_article.php" method="post">
                                     <input type="search" placeholder="Recherchez un article.." name="article" autocomplete="off" id="nomArticle"  class="form-control2">
                                     <div class="input-group-append">
-                                        <button id="buttonclick"  class="btn  text-primary backgroundsearch"><i class="fa fa-search "></i></button>
+                                        <button id="buttonclick"  class="btn btn-success text-primary backgroundsearch"><i class="fa fa-search "></i></button>
                                     </div>
                             </form>
                         </div>
