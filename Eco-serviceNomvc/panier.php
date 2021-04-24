@@ -19,16 +19,16 @@ $total = 0;
 ?>
 
 <h3 class="text-center">Panier</h3>
-
+<?php if(!empty($msg)) echo "<div class='alert-success text-center'>".$msg."</div><br/>"; ?>
 <div class="container">
     <div class="row">
         <div class="col-6">
             <div class="col-6" >
-            <?php foreach($articles as $article): $total +=   $article['exemplaire'] * $article['prix'] ;?>
+            <?php $count = 0; foreach($articles as $article): $total +=   $article['exemplaire'] * $article['prix'] ; $count+= $article['exemplaire']; ?>
                 <div class="border mb-5">
                     <table>
                         <tr>
-                            <td>
+                            <td class='pr-5'>
                                 <?php echo $article['titre_article'] ?>
                             </td>
                             <td>
@@ -43,8 +43,16 @@ $total = 0;
                                 <?php echo "x". $article['exemplaire'] ?>
                             </td>
                         </tr>
+                        <tr>
+                            <td>
+                                <?php echo "total : ". $article['exemplaire'] * $article['prix'] . "€"; ?>
+                            </td>
+                            <td>
+                                <a href="delPanier.php?article=<?php echo $article['id'] ?>&exemplaire=<?php echo $article['exemplaire'] ?>">Supprimer</a>
+                            </td>
+                        </tr>
                     </table>
-                    <?php echo "total : ". $article['exemplaire'] * $article['prix'] . "€"; ?>
+                    
                 </div>
 
             <?php endforeach ?>
@@ -52,11 +60,13 @@ $total = 0;
             
         </div>
        <div class="col-6">
-            <?php echo "Total de la commande:" . $total ?>
-
-
-            <a href="https://paypal.me/nathan93600" > <img src="" ></a>
-
+            <?php echo $count . " articles" ?>
+            <br/>
+            <?php echo "Total de la commande : " . $total . ' €' ?>
+            
+            <br/>
+            <a  href="https://paypal.me/nathan93600" > <img style='margin-top:150px;' src="assets\images\paypal.png" ></a>
+            
         </div> 
     </div>
 
