@@ -7,29 +7,15 @@
  }
 include('assets/include/connexionbdd.php');
 require_once('assets/include/header.php'); 
-
+ if(!empty($article_added)){
+    echo "<div class='alert-success text-center';>$article_added </div>";
+}
+require_once('assets/include/banniere.svg'); 
 ?>
 <!-- Fin du Header -->
 
 
-<div class="taille">
-    <div class="row">
-        <div class="col-12 col-md-12 ">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="d-block w-100" src="assets/images/Recyclage.png" alt="1st slide">
-                   </div>
-            </div>
-        </div>
-        
-    </div>
-</div>
+
 <section class="jumbotron  ">
     <div class="container">
         <h1 class="jumbotron-heading DecouvrezNosProduits text-center" >Demarche Zero-Déchets </h1></br>
@@ -39,7 +25,7 @@ require_once('assets/include/header.php');
 
                 <h5>Qui sommes nous ?</h5>
                 </br></br>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci inventore quisquam, harum qui vero nostrum dolores, voluptates ipsam laborum soluta incidunt. Laudantium magnam culpa officiis, exercitationem unde iste praesentium provident.</p>
+                <p>Eco-service est la société qui vous propose la vente de produits zero-dechet et la réservation de services de recyclege en entreprise depuis 20 ans</p>
             </div>
             <div class="col-1">
             </div>
@@ -48,7 +34,8 @@ require_once('assets/include/header.php');
                 </br>
                 <h5>Comment ça marche ?</h5>
                 </br></br>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci inventore quisquam, harum qui vero nostrum dolores, voluptates ipsam laborum soluta incidunt. Laudantium magnam culpa officiis, exercitationem unde iste praesentium provident.</p>
+                <p>Une multitude de produits zero-déchet sont disponible à la vente pour tout nos visiteurs.
+Prenez rendez-vous dès maintenant pour bénéfier de notre sercive de recyclage en entreprise </p>
 
             </div>    
         </div>
@@ -61,7 +48,7 @@ require_once('assets/include/header.php');
 
     <div class="row">
     
-        <div class="col-sm">
+        <div class="col-12">
             <div class="card">
                 <div class="card-header bg-color2 text-white text-uppercase">
                     <i class="fa fa-star"></i> Nos derniers produits 
@@ -78,11 +65,25 @@ require_once('assets/include/header.php');
                     $results = $bdd->fetchAll();
                     
                     foreach($results as $result): ?>
-                        <div class="col-sm">
+                        <div class="col-sm-4">
                             <div class="card">
-                                <img class="card-img-top" src ="assets/images/articleImg/<?php echo $result['img'] ?>.jpg" class="img-fluid rounded " alt="Card image cap">
+                                <img class="card-img-top" src ="assets/images/articleImg/<?php echo $result['img'] ?>" class="img-fluid rounded " alt="Card image cap">
                                 <div class="card-body">
-                                    <h4 class="card-title"><a href="product.html" title="View Product"><?php echo $result['titre_article'] ; ?></a></h4>
+                                    <?php 
+                                        if ($_SESSION['statut'] == "2"){ //On affiche sa uniquement si le pseudo = a la session donc juste SES commentaires
+                                    ?> 
+
+                                        <!--Supprimer le commentaire-->
+                                        <form action="suppproduct_post.php" method="post" class="del2">
+                                            <button class="btn btn-sm float-right btndelete" type="submit">
+                                            <img src="assets\images\icones\trash-svg.svg" width="20" height="20" class="float-right" title="Supprimer l'article"></button>
+                                            <input type="hidden" name="id" value="<?php echo $result['id'] ?>"/>  
+                                        </form> 
+                                    
+                                    <?php 
+                                        } 
+                                    ?>
+                                    <h4 class="card-title"><a style="color: black"href="product.html" title="View Product"><?php echo $result['titre_article'] ; ?></a></h4>
                                     <p class="card-text"><?php echo $result['description'] ; ?></p>
                                     <div class="row">
                                         <div class="col">
@@ -91,7 +92,7 @@ require_once('assets/include/header.php');
                                         <div class="col">
                                         <form class="text-center" method="post" action="addPanier.php?link=accueil">
                                             <input hidden name="id_article" value="<?php echo $result['id'] ?>">
-                                            <input type="submit" value="Ajouter au panier"> 
+                                            <input class="btn btn-success" type="submit" value="Ajouter au panier"> 
                                         </form>
                                         </div>
                                     </div>
@@ -116,14 +117,15 @@ require_once('assets/include/header.php');
 
             </div>
             <div class="col-7">
-             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates, soluta sapiente distinctio quaerat, est accusamus eum explicabo, asperiores repellendus numquam ab error quas saepe dolorum impedit quo delectus quibusdam alias.</p>
-            <button class="btn btn-success">Voir nos services</button>
+             <p>Besoin de recyclage au sein de votre entreprise ? Laissez nous faire!
+Eco-service débarquera sur place pour effectuer le tri et évaluer la valeur de vos produits zero déchet.
+Prenez rendez-vous sans plus attendre!</p>
+            <button class="btn btn-success" onclick="window.location.href='services.php'">Voir nos services</button>
             </div>
             
         </div>
     </div>
 </section>
-
 
 
 

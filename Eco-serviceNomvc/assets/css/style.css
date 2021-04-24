@@ -7,7 +7,7 @@ html {
 	height:100%;
 }
 .testici {
-    height: 700px;
+    height: 00px;
 }
 .btn-action {
     background-color:#668B22;
@@ -29,13 +29,15 @@ html {
 }
 .articleProducts{
     margin-bottom: 40px;
-    margin-right:10px;
+    margin-right:0;
+    margin-left: 0;
     border: 2px solid #668B22;
     border-radius: 10px;
     padding-bottom: 10px;
     padding-top: 10px;
 
 }
+
 .buttonDevis{
     background-color: white; /* Green */
     border: none;
@@ -51,8 +53,7 @@ html {
   
 
 }
-.img-fluid{
-}
+
 .center-block {
     display: block;
     margin-left: auto;
@@ -87,7 +88,7 @@ html {
     margin-bottom: 20px;
     border: 5px solid #668B22;
     border-radius: 10px;
-    height: 700px;
+    height: 970px;
 }
 .divBoxLog2 {
     margin-top: 20px;
@@ -158,12 +159,47 @@ h5{
 
 }
 
-.backgroundsearch{
-    background-color: #C4C4C4!important;
+.btndelete{
+    
+        border: none;
+        background-color: transparent;
+        outline: none;
+    
+}
+.text-primary {
+    color: white !important;
+}
+.col-4-custom{
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 32.333333%;
+}
+
+
+a:hover{
+    text-decoration: none;
 }
 input[type="search"],
-button {
+.backgroundsearch {
     float: left;
+}
+.btn2{
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    /* padding: .375rem .75rem; */
+    /* font-size: 1rem; */
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 .autocomplete-items{
     position: absolute;

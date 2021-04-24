@@ -21,9 +21,9 @@
     var_dump($check);
     $redirection = $_GET['link'];
     if($check)
-        $msg = "votre article a bien été ajouté";
+        $msg = "Votre article a bien été ajouté à votre panier !";
     else
-        $msg = "votre article n'a pas pu être ajouté";
+        $msg = "Votre article n'a pas pu être ajouté";
 
     $_GET['article'] = $id_article;
     if($redirection == 'allProducts')
