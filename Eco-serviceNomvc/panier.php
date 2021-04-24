@@ -23,31 +23,31 @@ $total = 0;
 <div class="container">
     <div class="row">
         <div class="col-6">
-            <div class="col-6" >
+            <div class="col-9" >
             <?php $count = 0; foreach($articles as $article): $total +=   $article['exemplaire'] * $article['prix'] ; $count+= $article['exemplaire']; ?>
-                <div class="border mb-5">
-                    <table>
+                <div class=" mb-5 ">
+                    <table  class="border-article">
                         <tr>
-                            <td class='pr-5'>
+                            <td style="padding-left: 20px;" >
                                 <?php echo $article['titre_article'] ?>
                             </td>
-                            <td>
+                            <td style="float:right; padding-right:20px;">
                                 <?php echo $article['prix'] ."€" ?>
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                              <img width="50px" src="assets/images/articleImg/<?php echo $article['img']?>">
+                            <td style="padding-left: 20px;">
+                              <img  width="80px" src="assets/images/articleImg/<?php echo $article['img']?>.jpg">
                             </td>
-                            <td>
+                            <td  style="float:right; padding-right:20px;"">
                                 <?php echo "x". $article['exemplaire'] ?>
                             </td>
                         </tr>
                         <tr>
-                            <td>
+                            <td style="padding-left: 20px;">
                                 <?php echo "total : ". $article['exemplaire'] * $article['prix'] . "€"; ?>
                             </td>
-                            <td>
+                            <td  style="float:right; padding-right:20px;">
                                 <a href="delPanier.php?article=<?php echo $article['id'] ?>&exemplaire=<?php echo $article['exemplaire'] ?>">Supprimer</a>
                             </td>
                         </tr>
@@ -59,15 +59,18 @@ $total = 0;
             </div>
             
         </div>
-       <div class="col-6">
+       <div class="col-3">
             <?php echo $count . " articles" ?>
             <br/>
             <?php echo "Total de la commande : " . $total . ' €' ?>
             
             <br/>
-            <a  href="https://paypal.me/nathan93600" > <img style='margin-top:150px;' src="assets\images\paypal.png" ></a>
+            <a  href="https://paypal.me/nathan93600" > <img style='margin-top:150px; margin-bottom:150px;' src="assets\images\paypal.png" ></a>
             
         </div> 
     </div>
 
 </div>
+
+<!-- Footer -->
+<?php require_once('assets/include/footer.php');?>
