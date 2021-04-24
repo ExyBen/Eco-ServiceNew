@@ -13,7 +13,7 @@ catch(Exception $e)
         $description = $_POST['description'];
         $prix = $_POST['prix'];
         $categoriearticle = $_POST['categoriearticle'];
-        
+        if(!empty($categoriearticle) AND !empty($description) AND !empty($prix) AND !empty($titre_article)){
                 $datimer=date ("Y-m-d H:i:s");
                 $req = $bdd->prepare('INSERT INTO article (titre_article,prix,description,categoriearticle,date_ajout) VALUES(?,?,?,?,?)'); 
                 $req->execute(array($titre_article,$prix,$description,$categoriearticle,$datimer));
@@ -48,7 +48,9 @@ catch(Exception $e)
                 }
         }
 
-        echo  $lastId;
-                exit();
-               
+        $article_added = 'Votre article a bien été ajouté en base de données !';
+        include('accueil.php');
+    }else{
+        header('addproduct.php');
+    }             
                     

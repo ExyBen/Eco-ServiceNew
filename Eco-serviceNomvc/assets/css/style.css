@@ -158,8 +158,25 @@ h5{
 
 }
 
+.btndelete{
+    
+        border: none;
+        background-color: transparent;
+        outline: none;
+    
+}
+.col-4-custom{
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 32.333333%;
+}
+
 .backgroundsearch{
     background-color: #C4C4C4!important;
+}
+a:hover{
+    text-decoration: none;
 }
 input[type="search"],
 .backgroundsearch {

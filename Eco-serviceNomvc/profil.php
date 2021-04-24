@@ -63,18 +63,11 @@ if(!isset($_POST['pass3'])){
                         <?php if(isset($pass_error)) { ?>     <!-- idem pour le mot de passe-->
                             <p class="form_error"> <?php echo $pass_error2 ?> </p>
                         <?php } ?>
-                        <button type="submit" class="btn btn-primary btnenvoyer text-center">Envoyer</button>
+                        <button type="submit" class="btn btn-success btnenvoyer text-center">Envoyer</button>
                     </form>
                 </div>
 			</div>
-		
-            
-            
-            
-
-			
         </div>
-        
 	</div>
 
 

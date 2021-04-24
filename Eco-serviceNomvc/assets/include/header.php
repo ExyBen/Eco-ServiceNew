@@ -59,9 +59,12 @@
 
                 <div class="form-inline my-2 my-lg-0">
                     <div class="input-group input-group-sm">
-                        <a href="deconnexion.php" class ="iconnav" ><img title="search" alt="search" src="assets/images/icones/search.png" width="30px"></a> 
-                        <a href="panier.php" class ="iconnav"><img title="panier" alt="panier" src="assets/images/icones/panier.png" width="30px"></a> 
-                        <a href="profil.php" class ="iconnav"><img title="profil" alt="profil" src="assets/images/icones/profil.png" width="30px"></a> 
+                        <?php if($_SESSION['statut'] == '2'){?>
+                        <a href="addproduct.php" class ="iconnav" ><img title="Ajouter un article" alt="Ajouter un article" src="assets/images/icones/add.png" width="30px"></a> 
+                        <?php } ?>
+                        <a href="deconnexion.php" class ="iconnav" ><img title="Se deconnecter" alt="Se deconnecter" src="assets/images/icones/exit.png" width="30px"></a> 
+                        <a href="panier.php" class ="iconnav"><img title="Consulter mon panier" alt="Consulter mon panier" src="assets/images/icones/panier.png" width="30px"></a> 
+                        <a href="profil.php" class ="iconnav"><img title="Consulter mon profil" alt="Consulter mon profil" src="assets/images/icones/profil.png" width="30px"></a> 
                     </div>
                     
                 </div>

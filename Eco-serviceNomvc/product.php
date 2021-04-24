@@ -23,6 +23,9 @@ $req->execute(array($_GET['article']));
         <p class="lead text-muted mb-0"><?php echo $donnees['description']; ?></p>
     </div>
 </section>
+<?php if(!empty($msg)){
+            echo "<div class='alert-success text-center';>$msg </div>";
+        }?>
 <div class="container">
     <div class="row">
         <div class="col">
@@ -36,19 +39,14 @@ $req->execute(array($_GET['article']));
         </div>
     </div>
 </div>
-<?php if(!empty($msg)){
-            echo "<div class='alert-success text-center';>$msg </div>";
-        }?>
+
 <div class="container">
     <div class="row">
         <!-- Image -->
         <div class="col-12 col-lg-6">
             <div class="card bg-light mb-3">
-                <div class="card-body">
-                    <a href="" data-toggle="modal" data-target="#productModal">
+                <div class="card-body text-center">
                         <img class="img-fluid" src="assets/images/articleImg/<?php echo $donnees['img']; ?>" />
-                        <p class="text-center">Zoom</p>
-                    </a>
                 </div>
             </div>
         </div>
