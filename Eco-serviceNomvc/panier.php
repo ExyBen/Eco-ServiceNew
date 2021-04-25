@@ -37,9 +37,9 @@ $total = 0;
                         </tr>
                         <tr>
                             <td style="padding-left: 20px;">
-                              <img  width="80px" src="assets/images/articleImg/<?php echo $article['img']?>">
+                              <img  width="80px" src="assets/images/articleImg/<?php echo $article['img']?>.jpg">
                             </td>
-                            <td  style="float:right; padding-right:20px;">
+                            <td  style="float:right; padding-right:20px;"">
                                 <?php echo "x". $article['exemplaire'] ?>
                             </td>
                         </tr>
